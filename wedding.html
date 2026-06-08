@@ -223,17 +223,23 @@
     border-radius: 20px;
     overflow: hidden;
     box-shadow: var(--shadow);
-    aspect-ratio: 4/3;
     max-width: 600px;
     margin: 0 auto;
+    background: #1a1a1a;
   }
 
   .gallery-slide {
-    position: absolute;
-    inset: 0;
+    display: none;
     opacity: 0;
     transition: opacity 0.8s ease;
-    background: center/cover no-repeat;
+  }
+
+  .gallery-slide img {
+    display: block;
+    width: 100%;
+    height: auto;
+    object-fit: contain;
+    max-height: 75vh;
   }
 
   .gallery-slide.active { opacity: 1; }
@@ -457,9 +463,9 @@
   <h2 class="section-title">甜 蜜 时 刻</h2>
   <div class="section-line"></div>
   <div class="gallery fade-in" id="gallery">
-    <div class="gallery-slide active" style="background-image: url('photo1.jpg')"></div>
-    <div class="gallery-slide" style="background-image: url('photo2.jpg')"></div>
-    <div class="gallery-slide" style="background-image: url('photo3.jpg')"></div>
+    <div class="gallery-slide active"><img src="photo1.jpg" alt="婚纱照1"></div>
+    <div class="gallery-slide"><img src="photo2.jpg" alt="婚纱照2"></div>
+    <div class="gallery-slide"><img src="photo3.jpg" alt="婚纱照3"></div>
     <button class="gallery-nav prev" id="prevBtn">◂</button>
     <button class="gallery-nav next" id="nextBtn">▸</button>
   </div>
@@ -543,12 +549,15 @@ const dots = document.querySelectorAll('.gallery-dot');
 const totalSlides = slides.length;
 
 function showSlide(index) {
-  slides.forEach(s => s.classList.remove('active'));
+  slides.forEach(s => { s.style.display = 'none'; s.style.opacity = '0'; });
   dots.forEach(d => d.classList.remove('active'));
   currentSlide = ((index % totalSlides) + totalSlides) % totalSlides;
-  slides[currentSlide].classList.add('active');
+  slides[currentSlide].style.display = 'block';
+  requestAnimationFrame(() => { slides[currentSlide].style.opacity = '1'; });
   dots[currentSlide].classList.add('active');
 }
+
+showSlide(0);
 
 document.getElementById('prevBtn').addEventListener('click', () => showSlide(currentSlide - 1));
 document.getElementById('nextBtn').addEventListener('click', () => showSlide(currentSlide + 1));
@@ -598,3 +607,4 @@ for (let i = 0; i < 8; i++) setTimeout(createPetal, i * 500);
 
 </body>
 </html>
+

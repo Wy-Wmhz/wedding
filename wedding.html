@@ -3,361 +3,517 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta property="og:title" content="杜堃 & 韩玉婷 · 新婚快乐">
+<meta property="og:description" content="2026年6月14日，我们结婚啦！">
+<meta property="og:image" content="https://wy-wmhz.github.io/wedding/photo3.jpg">
+<meta property="og:url" content="https://wy-wmhz.github.io/wedding/wedding.html">
+<meta property="og:type" content="website">
 <title>杜堃 & 韩玉婷 · 新婚快乐</title>
 <style>
-  @import url('https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@300;400;600;700&display=swap');
+  *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
 
-  * { margin: 0; padding: 0; box-sizing: border-box; }
+  :root {
+    --rose: #c44d6e;
+    --rose-dark: #9b2d4a;
+    --gold: #d4a853;
+    --gold-light: #f0d78c;
+    --cream: #fdf6f0;
+    --white: #ffffff;
+    --text: #4a3040;
+    --text-light: #8a6a7a;
+    --shadow: 0 8px 40px rgba(0,0,0,0.08);
+  }
+
+  html { scroll-behavior: smooth; }
 
   body {
-    font-family: 'Noto Serif SC', serif;
-    min-height: 100vh;
-    background: linear-gradient(135deg, #fce4ec 0%, #f8bbd0 25%, #fce4ec 50%, #f3e5f5 75%, #fce4ec 100%);
-    background-size: 400% 400%;
-    animation: gradientShift 15s ease infinite;
+    font-family: 'Georgia', 'Noto Serif SC', 'SimSun', 'STSong', serif;
+    color: var(--text);
+    background: var(--cream);
     overflow-x: hidden;
-    cursor: default;
+    -webkit-font-smoothing: antialiased;
   }
 
-  @keyframes gradientShift {
-    0%, 100% { background-position: 0% 50%; }
-    50% { background-position: 100% 50%; }
-  }
-
-  .petal {
-    position: fixed;
-    pointer-events: none;
-    z-index: 100;
-    animation: petalFall linear forwards;
-  }
-
-  @keyframes petalFall {
-    0% { transform: translateY(-10vh) rotate(0deg) scale(1); opacity: 1; }
-    70% { opacity: 1; }
-    100% { transform: translateY(105vh) rotate(720deg) scale(0.3); opacity: 0; }
-  }
-
-  .floating-heart {
-    position: fixed;
-    pointer-events: none;
-    z-index: 99;
-    animation: floatUp 4s ease-out forwards;
-    font-size: 24px;
-  }
-
-  @keyframes floatUp {
-    0% { transform: translateY(0) scale(0); opacity: 1; }
-    30% { transform: translateY(-80px) scale(1.4); opacity: 1; }
-    100% { transform: translateY(-250px) scale(0.6); opacity: 0; }
-  }
-
-  .container {
+  /* ===== Hero ===== */
+  .hero {
     position: relative;
-    z-index: 10;
-    max-width: 800px;
-    margin: 0 auto;
-    padding: 60px 30px;
-    text-align: center;
-  }
-
-  .rings {
-    font-size: 60px;
-    margin-bottom: 20px;
-    animation: ringBounce 2s ease-in-out infinite;
-    letter-spacing: 10px;
-  }
-
-  @keyframes ringBounce {
-    0%, 100% { transform: translateY(0); }
-    50% { transform: translateY(-10px); }
-  }
-
-  h1 {
-    font-size: 48px;
-    font-weight: 700;
-    color: #c2185b;
-    margin-bottom: 10px;
-    letter-spacing: 6px;
-    text-shadow: 2px 2px 4px rgba(194, 24, 91, 0.15);
-  }
-
-  .subtitle {
-    font-size: 20px;
-    color: #ad1457;
-    font-weight: 300;
-    margin-bottom: 30px;
-    letter-spacing: 4px;
-  }
-
-  .date-badge {
-    display: inline-block;
-    background: linear-gradient(135deg, #f48fb1, #ce93d8);
-    color: white;
-    padding: 12px 36px;
-    border-radius: 50px;
-    font-size: 22px;
-    font-weight: 600;
-    letter-spacing: 4px;
-    margin-bottom: 40px;
-    box-shadow: 0 4px 20px rgba(194, 24, 91, 0.3);
-  }
-
-  .countdown-section {
-    background: rgba(255, 255, 255, 0.7);
-    backdrop-filter: blur(10px);
-    border-radius: 24px;
-    padding: 30px 20px;
-    margin-bottom: 40px;
-    box-shadow: 0 8px 32px rgba(194, 24, 91, 0.1);
-  }
-
-  .countdown-title {
-    font-size: 18px;
-    color: #ad1457;
-    margin-bottom: 20px;
-    letter-spacing: 3px;
-  }
-
-  .countdown {
-    display: flex;
-    justify-content: center;
-    gap: 20px;
-    flex-wrap: wrap;
-  }
-
-  .countdown-item { text-align: center; }
-
-  .countdown-num {
-    font-size: 42px;
-    font-weight: 700;
-    color: #c2185b;
-    background: linear-gradient(135deg, #f8bbd0, #f3e5f5);
-    width: 80px;
-    height: 80px;
-    line-height: 80px;
-    border-radius: 16px;
-    display: block;
-    margin-bottom: 8px;
-    box-shadow: 0 4px 12px rgba(194, 24, 91, 0.15);
-  }
-
-  
-  .couple-names {
-    font-size: 36px;
-    font-weight: 700;
-    margin-bottom: 30px;
-    letter-spacing: 6px;
+    width: 100%;
+    min-height: 100vh;
     display: flex;
     align-items: center;
     justify-content: center;
-    gap: 20px;
+    text-align: center;
+    overflow: hidden;
+    color: white;
   }
 
-  .name-groom { color: #c2185b; }
-  .name-bride { color: #ad1457; }
-  .ampersand { color: #e91e63; font-size: 28px; font-weight: 300; font-family: Georgia, serif; }
-
-  @media (max-width: 600px) {
-    .couple-names { font-size: 26px; gap: 12px; }
-  }
-  .countdown-label {
-    font-size: 14px;
-    color: #ad1457;
-    letter-spacing: 2px;
+  .hero-bg {
+    position: absolute;
+    inset: 0;
+    background: url('photo3.jpg') center/cover no-repeat;
+    filter: brightness(0.55) saturate(1.1);
+    transform: scale(1.05);
+    animation: heroZoom 20s ease-in-out infinite alternate;
   }
 
-  .message-card {
-    background: rgba(255, 255, 255, 0.75);
-    backdrop-filter: blur(10px);
-    border-radius: 24px;
-    padding: 40px 30px;
-    margin-bottom: 40px;
-    box-shadow: 0 8px 32px rgba(194, 24, 91, 0.1);
-    border: 1px solid rgba(255, 255, 255, 0.8);
+  @keyframes heroZoom {
+    0% { transform: scale(1.05); }
+    100% { transform: scale(1.12); }
   }
 
-  .message-card p {
-    font-size: 18px;
-    color: #6a1b3a;
-    line-height: 2.2;
-    letter-spacing: 2px;
+  .hero-overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(to bottom,
+      rgba(120,30,50,0.35) 0%,
+      rgba(120,30,50,0.15) 50%,
+      rgba(120,30,50,0.45) 100%
+    );
   }
 
-  .message-card .highlight {
-    font-size: 26px;
-    font-weight: 700;
-    color: #c2185b;
+  .hero-content {
+    position: relative;
+    z-index: 2;
+    padding: 40px 24px;
+    animation: fadeInUp 1.2s ease-out;
+  }
+
+  @keyframes fadeInUp {
+    from { opacity: 0; transform: translateY(40px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  .hero-date {
+    font-size: 16px;
+    letter-spacing: 8px;
+    text-transform: uppercase;
+    margin-bottom: 24px;
+    opacity: 0.9;
+  }
+
+  .hero-ampersand {
+    font-size: 60px;
+    font-family: 'Georgia', 'Times New Roman', serif;
+    font-style: italic;
+    color: var(--gold);
     display: block;
-    margin: 20px 0;
+    margin: 16px 0;
+    animation: pulse 2s ease-in-out infinite;
+  }
+
+  @keyframes pulse {
+    0%, 100% { opacity: 1; transform: scale(1); }
+    50% { opacity: 0.7; transform: scale(1.06); }
+  }
+
+  .hero-names {
+    font-size: clamp(36px, 6vw, 56px);
+    font-weight: 700;
+    letter-spacing: 10px;
+    line-height: 1.4;
+  }
+
+  .hero-names .groom { display: block; }
+  .hero-names .bride { display: block; }
+
+  .hero-sub {
+    font-size: 18px;
+    letter-spacing: 6px;
+    margin-top: 24px;
+    opacity: 0.85;
+  }
+
+  .scroll-hint {
+    position: absolute;
+    bottom: 40px;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 2;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 8px;
+    animation: bounce 2s infinite;
+    opacity: 0.7;
+  }
+
+  .scroll-hint span { font-size: 12px; letter-spacing: 4px; color: white; }
+  .scroll-arrow { font-size: 20px; color: white; }
+
+  @keyframes bounce {
+    0%, 100% { transform: translateX(-50%) translateY(0); }
+    50% { transform: translateX(-50%) translateY(10px); }
+  }
+
+  /* ===== Section Common ===== */
+  .section {
+    padding: 80px 24px;
+    max-width: 800px;
+    margin: 0 auto;
+    text-align: center;
+  }
+
+  .section-title {
+    font-size: clamp(22px, 4vw, 28px);
+    font-weight: 700;
+    letter-spacing: 6px;
+    color: var(--rose-dark);
+    margin-bottom: 12px;
+  }
+
+  .section-line {
+    width: 60px;
+    height: 2px;
+    background: linear-gradient(to right, transparent, var(--gold), transparent);
+    margin: 0 auto 40px;
+  }
+
+  /* ===== Countdown ===== */
+  .countdown-section {
+    background: linear-gradient(135deg, #fdf2f5 0%, #fdf6f0 50%, #fdf2f5 100%);
+  }
+
+  .countdown-grid {
+    display: flex;
+    justify-content: center;
+    gap: 16px;
+    flex-wrap: wrap;
+  }
+
+  .countdown-box {
+    background: var(--white);
+    border-radius: 20px;
+    padding: 20px 12px;
+    min-width: 80px;
+    box-shadow: var(--shadow);
+    border: 1px solid rgba(196,77,110,0.1);
+    transition: transform 0.3s;
+  }
+
+  .countdown-box:hover { transform: translateY(-4px); }
+
+  .countdown-num {
+    font-size: clamp(32px, 5vw, 48px);
+    font-weight: 700;
+    color: var(--rose);
+    display: block;
+    line-height: 1;
+  }
+
+  .countdown-label {
+    font-size: 13px;
+    color: var(--text-light);
+    letter-spacing: 4px;
+    margin-top: 8px;
+    display: block;
+  }
+
+  .countdown-sub {
+    margin-top: 28px;
+    font-size: 15px;
+    color: var(--rose);
     letter-spacing: 4px;
   }
 
-  .blessing-list {
-    list-style: none;
-    margin-top: 24px;
+  /* ===== Gallery ===== */
+  .gallery-section { background: var(--white); }
+
+  .gallery {
+    position: relative;
+    border-radius: 20px;
+    overflow: hidden;
+    box-shadow: var(--shadow);
+    aspect-ratio: 4/3;
+    max-width: 600px;
+    margin: 0 auto;
+  }
+
+  .gallery-slide {
+    position: absolute;
+    inset: 0;
+    opacity: 0;
+    transition: opacity 0.8s ease;
+    background: center/cover no-repeat;
+  }
+
+  .gallery-slide.active { opacity: 1; }
+
+  .gallery-dots {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    margin-top: 20px;
+  }
+
+  .gallery-dot {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background: #dcc;
+    border: none;
+    cursor: pointer;
+    transition: all 0.3s;
+  }
+
+  .gallery-dot.active {
+    background: var(--rose);
+    transform: scale(1.3);
+  }
+
+  .gallery-nav {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background: rgba(255,255,255,0.85);
+    border: none;
+    width: 44px;
+    height: 44px;
+    border-radius: 50%;
+    font-size: 18px;
+    cursor: pointer;
+    z-index: 5;
+    color: var(--rose);
+    box-shadow: 0 2px 12px rgba(0,0,0,0.1);
+    transition: all 0.3s;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .gallery-nav:hover { background: white; transform: translateY(-50%) scale(1.1); }
+  .gallery-nav.prev { left: 12px; }
+  .gallery-nav.next { right: 12px; }
+
+  /* ===== Love Story ===== */
+  .story-section { background: linear-gradient(180deg, #fdf6f0, #fdf2f5); }
+
+  .story-card {
+    background: var(--white);
+    border-radius: 24px;
+    padding: 48px 32px;
+    box-shadow: var(--shadow);
+    border: 1px solid rgba(196,77,110,0.08);
+    line-height: 2.4;
+    font-size: 17px;
+    letter-spacing: 2px;
+    position: relative;
+  }
+
+  .story-card::before {
+    content: '"';
+    font-size: 80px;
+    font-family: Georgia, serif;
+    color: var(--gold-light);
+    position: absolute;
+    top: 10px;
+    left: 24px;
+    line-height: 1;
+  }
+
+  .story-highlight {
+    font-size: 22px;
+    font-weight: 700;
+    color: var(--rose);
+    letter-spacing: 4px;
+    margin: 24px 0;
+    display: block;
+  }
+
+  /* ===== Blessings ===== */
+  .blessings-section { background: var(--white); }
+
+  .blessing-tags {
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
     gap: 12px;
+    max-width: 500px;
+    margin: 0 auto;
   }
 
-  .blessing-list li {
-    background: linear-gradient(135deg, #fce4ec, #f3e5f5);
-    padding: 8px 20px;
-    border-radius: 20px;
-    font-size: 15px;
-    color: #ad1457;
-    letter-spacing: 2px;
-  }
-
-  .photo-section {
-    display: flex;
-    gap: 16px;
-    justify-content: center;
-    flex-wrap: wrap;
-    margin-bottom: 12px;
-  }
-
-  .photo-frame {
-    width: 180px;
-    height: 220px;
-    border-radius: 16px;
-    background: linear-gradient(135deg, #f8bbd0, #e1bee7);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 48px;
-    color: rgba(194, 24, 91, 0.3);
-    border: 3px solid rgba(255, 255, 255, 0.8);
-    box-shadow: 0 4px 20px rgba(194, 24, 91, 0.12);
-    transition: transform 0.3s;
-    cursor: pointer;
-    position: relative;
-    overflow: hidden;
-  }
-
-  .photo-frame:hover { transform: scale(1.05) rotate(-2deg); }
-
-  .photo-frame img {
-    width: 100%; height: 100%;
-    object-fit: cover;
-    position: absolute;
-    top: 0; left: 0;
-  }
-
-  .photo-hint {
-    font-size: 13px;
-    color: #ad1457;
-    margin-bottom: 40px;
-    letter-spacing: 2px;
-    opacity: 0.7;
-  }
-
-  .footer {
-    font-size: 14px;
-    color: #ad1457;
-    opacity: 0.7;
+  .blessing-tag {
+    padding: 12px 24px;
+    border-radius: 30px;
+    font-size: 16px;
     letter-spacing: 3px;
-    margin-top: 20px;
+    border: 1.5px solid rgba(196,77,110,0.2);
+    color: var(--rose);
+    background: transparent;
+    transition: all 0.3s;
   }
 
-  .footer .heart {
-    color: #e91e63;
-    animation: heartbeat 1.2s ease-in-out infinite;
+  .blessing-tag:hover {
+    background: var(--rose);
+    color: white;
+    border-color: var(--rose);
+    transform: scale(1.05);
+  }
+
+  /* ===== Footer ===== */
+  .footer-section {
+    background: linear-gradient(0deg, #3d1525, #6b2a40);
+    color: rgba(255,255,255,0.85);
+    padding: 60px 24px 48px;
+    text-align: center;
+  }
+
+  .footer-from {
+    font-size: 14px;
+    letter-spacing: 4px;
+    opacity: 0.7;
+  }
+
+  .footer-bro {
+    font-size: 18px;
+    margin-top: 12px;
+    letter-spacing: 4px;
+  }
+
+  .footer-heart {
+    color: #ff6b8a;
+    font-size: 28px;
     display: inline-block;
+    animation: heartbeat 1.2s ease-in-out infinite;
+    margin: 16px 0;
   }
 
   @keyframes heartbeat {
     0%, 100% { transform: scale(1); }
-    25% { transform: scale(1.2); }
-    50% { transform: scale(1); }
-    75% { transform: scale(1.2); }
+    15% { transform: scale(1.3); }
+    30% { transform: scale(1); }
+    45% { transform: scale(1.3); }
+    60% { transform: scale(1); }
   }
 
+  /* ===== Petals ===== */
+  .petal {
+    position: fixed;
+    pointer-events: none;
+    z-index: 500;
+    animation: petalFall linear forwards;
+  }
+
+  @keyframes petalFall {
+    0% { transform: translateY(-5vh) rotate(0deg) scale(1); opacity: 0.9; }
+    80% { opacity: 0.6; }
+    100% { transform: translateY(105vh) rotate(540deg) scale(0.2); opacity: 0; }
+  }
+
+  /* ===== Fade-in on scroll ===== */
+  .fade-in {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: opacity 0.8s ease, transform 0.8s ease;
+  }
+
+  .fade-in.visible { opacity: 1; transform: translateY(0); }
+
+  /* ===== Responsive ===== */
   @media (max-width: 600px) {
-    h1 { font-size: 32px; letter-spacing: 4px; }
-    .countdown { gap: 10px; }
-    .countdown-num { font-size: 28px; width: 56px; height: 56px; line-height: 56px; }
-    .photo-frame { width: 140px; height: 170px; }
-    .date-badge { font-size: 18px; padding: 10px 24px; }
+    .section { padding: 60px 20px; }
+    .hero-names { font-size: 32px; letter-spacing: 6px; }
+    .hero-ampersand { font-size: 40px; }
+    .hero-date { font-size: 13px; letter-spacing: 5px; }
+    .story-card { padding: 36px 24px; font-size: 15px; }
   }
 </style>
 </head>
 <body>
 
-<div class="container">
-  <div class="rings">💍 💍</div>
-
-  <h1>新 婚 快 乐</h1>
-  <p class="subtitle">HAPPY WEDDING</p>
-
-  <div class="couple-names">
-    <span class="name-groom">杜堃</span>
-    <span class="ampersand">&</span>
-    <span class="name-bride">韩玉婷</span>
-  </div>
-
-<div class="date-badge">2026 · 06 · 14</div>
-
-  <div class="countdown-section">
-    <p class="countdown-title">🌹 距离幸福时刻还有</p>
-    <div class="countdown" id="countdown">
-      <div class="countdown-item">
-        <span class="countdown-num" id="days">--</span>
-        <span class="countdown-label">天</span>
-      </div>
-      <div class="countdown-item">
-        <span class="countdown-num" id="hours">--</span>
-        <span class="countdown-label">时</span>
-      </div>
-      <div class="countdown-item">
-        <span class="countdown-num" id="minutes">--</span>
-        <span class="countdown-label">分</span>
-      </div>
-      <div class="countdown-item">
-        <span class="countdown-num" id="seconds">--</span>
-        <span class="countdown-label">秒</span>
-      </div>
+<!-- Hero -->
+<section class="hero">
+  <div class="hero-bg"></div>
+  <div class="hero-overlay"></div>
+  <div class="hero-content">
+    <p class="hero-date">2026 · 06 · 14</p>
+    <div class="hero-names">
+      <span class="groom">杜 堃</span>
+      <span class="hero-ampersand">&</span>
+      <span class="bride">韩 玉 婷</span>
     </div>
+    <p class="hero-sub">新 婚 快 乐</p>
   </div>
-
-  <div class="photo-section">
-    <div class="photo-frame" id="photo1" title="点击更换照片"><img src="photo1.jpg" alt="杜堃 韩玉婷 婚纱照1"></div>
-    <div class="photo-frame" id="photo2" title="点击更换照片"><img src="photo2.jpg" alt="杜堃 韩玉婷 婚纱照2"></div>
-    <div class="photo-frame" id="photo3" title="点击更换照片"><img src="photo3.jpg" alt="杜堃 韩玉婷 婚纱照3"></div>
+  <div class="scroll-hint">
+    <span>向下滑动</span>
+    <div class="scroll-arrow">↓</div>
   </div>
-  <p class="photo-hint">📷 点击相框可以替换照片</p>
+</section>
 
-  <div class="message-card">
+<!-- Countdown -->
+<section class="section countdown-section">
+  <h2 class="section-title">幸 福 倒 计 时</h2>
+  <div class="section-line"></div>
+  <div class="countdown-grid fade-in">
+    <div class="countdown-box"><span class="countdown-num" id="days">--</span><span class="countdown-label">天</span></div>
+    <div class="countdown-box"><span class="countdown-num" id="hours">--</span><span class="countdown-label">时</span></div>
+    <div class="countdown-box"><span class="countdown-num" id="minutes">--</span><span class="countdown-label">分</span></div>
+    <div class="countdown-box"><span class="countdown-num" id="seconds">--</span><span class="countdown-label">秒</span></div>
+  </div>
+  <p class="countdown-sub">🌹 距离幸福时刻越来越近</p>
+</section>
+
+<!-- Gallery -->
+<section class="section gallery-section">
+  <h2 class="section-title">甜 蜜 时 刻</h2>
+  <div class="section-line"></div>
+  <div class="gallery fade-in" id="gallery">
+    <div class="gallery-slide active" style="background-image: url('photo1.jpg')"></div>
+    <div class="gallery-slide" style="background-image: url('photo2.jpg')"></div>
+    <div class="gallery-slide" style="background-image: url('photo3.jpg')"></div>
+    <button class="gallery-nav prev" id="prevBtn">◂</button>
+    <button class="gallery-nav next" id="nextBtn">▸</button>
+  </div>
+  <div class="gallery-dots" id="galleryDots">
+    <button class="gallery-dot active" data-index="0"></button>
+    <button class="gallery-dot" data-index="1"></button>
+    <button class="gallery-dot" data-index="2"></button>
+  </div>
+</section>
+
+<!-- Story -->
+<section class="section story-section">
+  <h2 class="section-title">一 路 走 来</h2>
+  <div class="section-line"></div>
+  <div class="story-card fade-in">
     <p>
       从相识到相知，从相恋到相守<br>
-      一路走来，终于迎来了这一天
+      一路携手走过春夏秋冬
     </p>
-    <span class="highlight">💒 杜堃 & 韩玉婷，今天你们结婚了 💒</span>
+    <span class="story-highlight">💒 今天，你们结婚了 💒</span>
     <p>
-      愿你们的爱情，如美酒般越久越醇<br>
-      愿你们的生活，如诗篇般浪漫动人
-    </p>
-    <ul class="blessing-list">
-      <li>💕 百年好合</li>
-      <li>✨ 永结同心</li>
-      <li>🎊 早生贵子</li>
-      <li>🌸 白头偕老</li>
-      <li>💝 琴瑟和鸣</li>
-      <li>🌺 幸福美满</li>
-    </ul>
-    <p style="margin-top:24px; font-size:20px; font-weight:600;">
-      💌 祝你们新婚快乐，永远幸福！
+      愿你们的爱情如美酒般越久越醇<br>
+      愿你们的生活如诗篇般浪漫动人<br>
+      愿未来的每一天都充满欢笑与温暖
     </p>
   </div>
+</section>
 
-  <p class="footer">
-    送给最好的哥们 杜堃 <span class="heart">❤️</span> <br>
-  2026.06.08 · 兄弟永远挺你
-  </p>
-</div>
+<!-- Blessings -->
+<section class="section blessings-section">
+  <h2 class="section-title">祝 福 满 满</h2>
+  <div class="section-line"></div>
+  <div class="blessing-tags fade-in">
+    <span class="blessing-tag">💕 百年好合</span>
+    <span class="blessing-tag">✨ 永结同心</span>
+    <span class="blessing-tag">🎊 早生贵子</span>
+    <span class="blessing-tag">🌸 白头偕老</span>
+    <span class="blessing-tag">💝 琴瑟和鸣</span>
+    <span class="blessing-tag">🌺 幸福美满</span>
+    <span class="blessing-tag">🎀 相敬如宾</span>
+    <span class="blessing-tag">🏠 宜室宜家</span>
+  </div>
+</section>
+
+<!-- Footer -->
+<section class="footer-section">
+  <p class="footer-from">FOR MY BEST BRO</p>
+  <p class="footer-bro">杜堃 & 韩玉婷</p>
+  <div class="footer-heart">❤️</div>
+  <p class="footer-bro" style="font-size:14px; opacity:0.7;">兄弟永远挺你</p>
+</section>
 
 <script>
+// ===== Countdown =====
 const weddingDate = new Date('2026-06-14T00:00:00+08:00');
 
 function updateCountdown() {
@@ -365,87 +521,80 @@ function updateCountdown() {
   const diff = weddingDate - now;
 
   if (diff <= 0) {
-    document.getElementById('days').textContent = '🎉';
-    document.getElementById('hours').textContent = '🎉';
-    document.getElementById('minutes').textContent = '🎉';
-    document.getElementById('seconds').textContent = '🎉';
+    ['days','hours','minutes','seconds'].forEach(id => {
+      document.getElementById(id).textContent = '🎉';
+    });
     return;
   }
 
-  const d = Math.floor(diff / (1000 * 60 * 60 * 24));
-  const h = Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-  const m = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
-  const s = Math.floor((diff % (1000 * 60)) / 1000);
-
-  document.getElementById('days').textContent = String(d).padStart(2, '0');
-  document.getElementById('hours').textContent = String(h).padStart(2, '0');
-  document.getElementById('minutes').textContent = String(m).padStart(2, '0');
-  document.getElementById('seconds').textContent = String(s).padStart(2, '0');
+  document.getElementById('days').textContent = String(Math.floor(diff / 86400000)).padStart(2, '0');
+  document.getElementById('hours').textContent = String(Math.floor((diff % 86400000) / 3600000)).padStart(2, '0');
+  document.getElementById('minutes').textContent = String(Math.floor((diff % 3600000) / 60000)).padStart(2, '0');
+  document.getElementById('seconds').textContent = String(Math.floor((diff % 60000) / 1000)).padStart(2, '0');
 }
 
 updateCountdown();
 setInterval(updateCountdown, 1000);
 
+// ===== Gallery Carousel =====
+let currentSlide = 0;
+const slides = document.querySelectorAll('.gallery-slide');
+const dots = document.querySelectorAll('.gallery-dot');
+const totalSlides = slides.length;
+
+function showSlide(index) {
+  slides.forEach(s => s.classList.remove('active'));
+  dots.forEach(d => d.classList.remove('active'));
+  currentSlide = ((index % totalSlides) + totalSlides) % totalSlides;
+  slides[currentSlide].classList.add('active');
+  dots[currentSlide].classList.add('active');
+}
+
+document.getElementById('prevBtn').addEventListener('click', () => showSlide(currentSlide - 1));
+document.getElementById('nextBtn').addEventListener('click', () => showSlide(currentSlide + 1));
+dots.forEach(dot => {
+  dot.addEventListener('click', () => showSlide(parseInt(dot.dataset.index)));
+});
+
+// Auto-play
+setInterval(() => showSlide(currentSlide + 1), 5000);
+
+// Touch swipe
+let touchStartX = 0;
+document.getElementById('gallery').addEventListener('touchstart', e => {
+  touchStartX = e.touches[0].clientX;
+});
+document.getElementById('gallery').addEventListener('touchend', e => {
+  const diff = touchStartX - e.changedTouches[0].clientX;
+  if (Math.abs(diff) > 50) showSlide(currentSlide + (diff > 0 ? 1 : -1));
+});
+
+// ===== Scroll Fade-in =====
+const fadeEls = document.querySelectorAll('.fade-in');
+const observer = new IntersectionObserver(entries => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) entry.target.classList.add('visible');
+  });
+}, { threshold: 0.15 });
+
+fadeEls.forEach(el => observer.observe(el));
+
+// ===== Petals =====
 function createPetal() {
   const petal = document.createElement('div');
   petal.className = 'petal';
-  const emojis = ['🌸', '🌺', '💮', '🌷', '🌹', '💐', '✿', '🌼'];
-  petal.textContent = emojis[Math.floor(Math.random() * emojis.length)];
+  petal.textContent = ['🌸','🌺','💮','🌷','🌹','✿','🌼','🍂'][Math.floor(Math.random() * 8)];
   petal.style.left = Math.random() * 100 + '%';
-  petal.style.fontSize = (16 + Math.random() * 20) + 'px';
-  petal.style.animationDuration = (6 + Math.random() * 8) + 's';
+  petal.style.fontSize = (14 + Math.random() * 22) + 'px';
+  petal.style.animationDuration = (7 + Math.random() * 10) + 's';
   petal.style.animationDelay = Math.random() * 3 + 's';
-  petal.style.opacity = 0.5 + Math.random() * 0.5;
   document.body.appendChild(petal);
-  setTimeout(() => petal.remove(), 12000);
+  setTimeout(() => petal.remove(), 15000);
 }
 
-setInterval(createPetal, 600);
-for (let i = 0; i < 10; i++) setTimeout(createPetal, i * 400);
-
-function createHeart(x, y) {
-  const heart = document.createElement('div');
-  heart.className = 'floating-heart';
-  heart.textContent = ['❤️', '💕', '💗', '💖', '💝'][Math.floor(Math.random() * 5)];
-  heart.style.left = x + 'px';
-  heart.style.top = y + 'px';
-  document.body.appendChild(heart);
-  setTimeout(() => heart.remove(), 4000);
-}
-
-document.addEventListener('click', (e) => {
-  if (e.target.closest('.photo-frame')) return;
-  createHeart(e.clientX, e.clientY);
-});
-
-document.addEventListener('touchstart', (e) => {
-  const touch = e.touches[0];
-  if (e.target.closest('.photo-frame')) return;
-  createHeart(touch.clientX, touch.clientY);
-}, { passive: true });
-
-['photo1', 'photo2', 'photo3'].forEach(id => {
-  document.getElementById(id).addEventListener('click', function(e) {
-    e.stopPropagation();
-    const input = document.createElement('input');
-    input.type = 'file';
-    input.accept = 'image/*';
-    input.onchange = function() {
-      const file = this.files[0];
-      if (!file) return;
-      const reader = new FileReader();
-      reader.onload = function(ev) {
-        const frame = document.getElementById(id);
-        frame.innerHTML = '<img src="' + ev.target.result + '" alt="婚礼照片">';
-      };
-      reader.readAsDataURL(file);
-    };
-    input.click();
-  });
-});
+setInterval(createPetal, 700);
+for (let i = 0; i < 8; i++) setTimeout(createPetal, i * 500);
 </script>
 
 </body>
 </html>
-
-
